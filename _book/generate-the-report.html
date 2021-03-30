@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,7 +79,7 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
@@ -123,8 +123,8 @@
 <li><p>Generate one report for one measure using customized settings by the users <code>render_report_manual()</code></p></li>
 <li><p>Generate multiple separate reports for multiple measures using default settings <code>render_report_multiple()</code></p></li>
 </ol>
-<p>After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is necessary because you may accidentally overwrite your manual edits if you regenerate the report in R.</p>
-<p>Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will not be reflected in the R codes when you regenerate the report for some reasons (e.g. wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).</p>
+<p>After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is <strong>necessary</strong> because you may accidentally overwrite your manual edits if you regenerate the report in R.</p>
+<p>Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will <strong>NOT</strong> be reflected in the R codes when you regenerate the report for some reasons (e.g. wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).</p>
 <div id="render_report" class="section level2" number="4.1">
 <h2><span class="header-section-number">4.1</span> <code>render_report()</code></h2>
 <p>Run <code>?render_report()</code> to see what each argument represents.</p>

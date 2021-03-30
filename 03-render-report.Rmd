@@ -10,9 +10,9 @@ There are three ways to generate reports:
 
 3. Generate multiple separate reports for multiple measures using default settings `render_report_multiple()`
 
-After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is necessary because you may accidentally overwrite your manual edits if you regenerate the report in R.
+After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is **necessary** because you may accidentally overwrite your manual edits if you regenerate the report in R.
 
-Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will not be reflected in the R codes when you regenerate the report for some reasons (e.g. wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).
+Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will **NOT** be reflected in the R codes when you regenerate the report for some reasons (e.g. wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).
 
 ## `render_report()`
 

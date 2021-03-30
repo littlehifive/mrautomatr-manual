@@ -13,9 +13,9 @@ First, copy and paste all **currently available** final Mplus models (only the `
  - Age invariance models
  - Gender invariance models
 
-## Fill in the excel template
+## Fill in the Excel template
 
-Second, fill in the excel sheet template that we provide. This excel file is downloaded along with the `mrautomatr` package. You can find its file path on your computer by running `system.file("templates", "input_template.xlsx", package = "mrautomatr")` in R. Copy and paste it somewhere in your computer (e.g. a folder called `Measurement report/template`).
+Second, fill in the Excel sheet template that we provide. This Excel file is downloaded along with the `mrautomatr` package. You can find its file path on your computer by running `system.file("templates", "input_template.xlsx", package = "mrautomatr")` in R. Copy and paste it somewhere in your computer (e.g. a folder called `Measurement report/template`).
 
 Alternatively, you can also find this template (`input_template.xlsx`) located in `inst/templates/` in the [package GitHub repository](https://github.com/nyuglobalties/mrautomatr). Simply hit `Download` to download the template and store somewhere in your computer.
 
@@ -33,7 +33,7 @@ A shorthand to get file path on Mac: go to the path/file and hit `command + opti
 
 -   `fs_data_file_path` refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus **does not** generate a spreadsheet, you will need to:
 
-    - **(1) copy and paste the factor scores into an excel sheet, and**
+    - **(1) copy and paste the factor scores into an Excel sheet, and**
 
     - **(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.**
 

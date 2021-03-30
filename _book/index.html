@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,7 +79,7 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
@@ -117,16 +117,16 @@
 <div id="header">
 <h1 class="title">TIES Measurement Report Automation Project</h1>
 <p class="author"><em>Michael Wu</em></p>
-<p class="date"><em>2021-03-29</em></p>
+<p class="date"><em>2021-03-30</em></p>
 </div>
 <div id="project-overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Project overview</h1>
 <p>This project is developed to generate lengthy but informative measurement reports from survey data and Mplus measurement model outputs for projects at <a href="https://steinhardt.nyu.edu/ihdsc/global-ties">NYU Global TIES for Children</a>.</p>
 <p>Typically, a research institute like TIES has the obligation to generate detailed measurement reports to better inform the funders and the cooperating agencies about its most up-to-date work. However, even with a Word template, the process from analytical results to a publishable report is <u><strong>unnecessarily inefficent and prone to mistakes</strong></u> even for the most careful research assistant.</p>
 <p>Therefore, we develop an R package called <a href="https://github.com/nyuglobalties/mrautomatr"><code>mrautomatr</code></a> to be used in conjunction with Rstudio to address this issue. Currently, the project only suits the need of NYU Global TIES, where we can impose <a href="https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax">naming rules</a> for files and variables and most people use Mplus for measurement modeling and STATA for other analyses. Future adaptations are needed as people move their analysis to R.</p>
-<p>The project workflow is shown below: the users specify parameters in a Microsoft excel sheet and move several files to a destined folder, run a command in R, and (<strong>boom!</strong>) there is a well-formatted measurement report in Microsoft Word (powered by the <a href="https://davidgohel.github.io/flextable/"><code>flextable</code></a> &amp; <a href="https://bookdown.org/yihui/rmarkdown/"><code>rmarkdown</code></a> R packages).</p>
+<p>The project workflow is shown below: the users specify parameters in a Microsoft Excel sheet and move several files to a destined folder, run a command in R, and (<strong>boom!</strong>) there is a well-formatted measurement report in Microsoft Word (powered by the <a href="https://davidgohel.github.io/flextable/"><code>flextable</code></a> &amp; <a href="https://bookdown.org/yihui/rmarkdown/"><code>rmarkdown</code></a> R packages).</p>
 <p><img src="images/mrautomatr_diagram.png" width="66%" style="display: block; margin: auto;" /></p>
-<p>We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy.</p>
+<p>We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report <a href="https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp">here</a>.</p>
 <p>Check out the <a href="https://github.com/nyuglobalties/workshops">TIES R workshop series</a> and Yihui Xie’s <a href="https://bookdown.org/yihui/rmarkdown/">Rmarkdown book</a> if you’d like to learn some necessary tools to customize your reporting formats using R.</p>
 
 </div>

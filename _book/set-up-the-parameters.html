@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-03-29" />
+<meta name="date" content="2021-03-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -79,7 +79,7 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
 <li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
@@ -130,8 +130,8 @@
 </ul>
 </div>
 <div id="fill-in-the-excel-template" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Fill in the excel template</h2>
-<p>Second, fill in the excel sheet template that we provide. This excel file is downloaded along with the <code>mrautomatr</code> package. You can find its file path on your computer by running <code>system.file("templates", "input_template.xlsx", package = "mrautomatr")</code> in R. Copy and paste it somewhere in your computer (e.g. a folder called <code>Measurement report/template</code>).</p>
+<h2><span class="header-section-number">3.2</span> Fill in the Excel template</h2>
+<p>Second, fill in the Excel sheet template that we provide. This Excel file is downloaded along with the <code>mrautomatr</code> package. You can find its file path on your computer by running <code>system.file("templates", "input_template.xlsx", package = "mrautomatr")</code> in R. Copy and paste it somewhere in your computer (e.g. a folder called <code>Measurement report/template</code>).</p>
 <p>Alternatively, you can also find this template (<code>input_template.xlsx</code>) located in <code>inst/templates/</code> in the <a href="https://github.com/nyuglobalties/mrautomatr">package GitHub repository</a>. Simply hit <code>Download</code> to download the template and store somewhere in your computer.</p>
 <p>In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with errors in the Word document telling you that you need to specify more parameters to have a full report).</p>
 <div id="tab-1-path" class="section level3" number="3.2.1">
@@ -143,7 +143,7 @@
 <li><p><code>data_file_path</code> should be wherever the final master data is located. It will be used to calculate summary statistics and bivariate correlations. Our tool currently takes the following data formats: <code>.csv</code>, <code>.xlsx</code>, <code>.dta</code>.</p></li>
 <li><p><code>fs_data_file_path</code> refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus <strong>does not</strong> generate a spreadsheet, you will need to:</p>
 <ul>
-<li><p><strong>(1) copy and paste the factor scores into an excel sheet, and</strong></p></li>
+<li><p><strong>(1) copy and paste the factor scores into an Excel sheet, and</strong></p></li>
 <li><p><strong>(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.</strong></p></li>
 <li><p><strong>(3) save the sheet either as a .csv or an .xlsx file.</strong></p></li>
 </ul></li>

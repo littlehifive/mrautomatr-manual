@@ -85,7 +85,7 @@
 
 \title{TIES Measurement Report Automation Project}
 \author{Michael Wu}
-\date{2021-03-29}
+\date{2021-03-30}
 
 \begin{document}
 \maketitle
@@ -103,11 +103,11 @@ Typically, a research institute like TIES has the obligation to generate detaile
 
 Therefore, we develop an R package called \href{https://github.com/nyuglobalties/mrautomatr}{\texttt{mrautomatr}} to be used in conjunction with Rstudio to address this issue. Currently, the project only suits the need of NYU Global TIES, where we can impose \href{https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax}{naming rules} for files and variables and most people use Mplus for measurement modeling and STATA for other analyses. Future adaptations are needed as people move their analysis to R.
 
-The project workflow is shown below: the users specify parameters in a Microsoft excel sheet and move several files to a destined folder, run a command in R, and (\textbf{boom!}) there is a well-formatted measurement report in Microsoft Word (powered by the \href{https://davidgohel.github.io/flextable/}{\texttt{flextable}} \& \href{https://bookdown.org/yihui/rmarkdown/}{\texttt{rmarkdown}} R packages).
+The project workflow is shown below: the users specify parameters in a Microsoft Excel sheet and move several files to a destined folder, run a command in R, and (\textbf{boom!}) there is a well-formatted measurement report in Microsoft Word (powered by the \href{https://davidgohel.github.io/flextable/}{\texttt{flextable}} \& \href{https://bookdown.org/yihui/rmarkdown/}{\texttt{rmarkdown}} R packages).
 
 \begin{center}\includegraphics[width=0.66\linewidth]{images/mrautomatr_diagram} \end{center}
 
-We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy.
+We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report \href{https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp}{here}.
 
 Check out the \href{https://github.com/nyuglobalties/workshops}{TIES R workshop series} and Yihui Xie's \href{https://bookdown.org/yihui/rmarkdown/}{Rmarkdown book} if you'd like to learn some necessary tools to customize your reporting formats using R.
 
@@ -194,9 +194,9 @@ First, copy and paste all \textbf{currently available} final Mplus models (only 
 \end{itemize}
 
 \hypertarget{fill-in-the-excel-template}{%
-\section{Fill in the excel template}\label{fill-in-the-excel-template}}
+\section{Fill in the Excel template}\label{fill-in-the-excel-template}}
 
-Second, fill in the excel sheet template that we provide. This excel file is downloaded along with the \texttt{mrautomatr} package. You can find its file path on your computer by running \texttt{system.file("templates",\ "input\_template.xlsx",\ package\ =\ "mrautomatr")} in R. Copy and paste it somewhere in your computer (e.g.~a folder called \texttt{Measurement\ report/template}).
+Second, fill in the Excel sheet template that we provide. This Excel file is downloaded along with the \texttt{mrautomatr} package. You can find its file path on your computer by running \texttt{system.file("templates",\ "input\_template.xlsx",\ package\ =\ "mrautomatr")} in R. Copy and paste it somewhere in your computer (e.g.~a folder called \texttt{Measurement\ report/template}).
 
 Alternatively, you can also find this template (\texttt{input\_template.xlsx}) located in \texttt{inst/templates/} in the \href{https://github.com/nyuglobalties/mrautomatr}{package GitHub repository}. Simply hit \texttt{Download} to download the template and store somewhere in your computer.
 
@@ -219,7 +219,7 @@ A shorthand to get file path on Mac: go to the path/file and hit \texttt{command
 
   \begin{itemize}
   \item
-    \textbf{(1) copy and paste the factor scores into an excel sheet, and}
+    \textbf{(1) copy and paste the factor scores into an Excel sheet, and}
   \item
     \textbf{(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.}
   \item
@@ -357,9 +357,9 @@ There are three ways to generate reports:
   Generate multiple separate reports for multiple measures using default settings \texttt{render\_report\_multiple()}
 \end{enumerate}
 
-After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is necessary because you may accidentally overwrite your manual edits if you regenerate the report in R.
+After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is \textbf{necessary} because you may accidentally overwrite your manual edits if you regenerate the report in R.
 
-Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will not be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).
+Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will \textbf{NOT} be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).
 
 \hypertarget{render_report}{%
 \section{\texorpdfstring{\texttt{render\_report()}}{render\_report()}}\label{render_report}}

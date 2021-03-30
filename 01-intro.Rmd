@@ -1,0 +1,35 @@
+# Set up the package
+
+## Install the necessary softwares
+
+You need to set up `R` and `Rstudio` on your computer before everything. `R` is the programming language that powers this project, and `Rstudio` is the interface that allows you better interact with your R code. Please follow the steps below:
+
+-   Download `R` [here](https://cran.r-project.org/mirrors.html) and install it before you install `Rstudio`.
+-   Download `Rstudio` [here](https://rstudio.com/products/rstudio/download/#download) and install it.
+-   Open Rstudio, and click the first icon from the left on the Rstudio toolbar, and select R Markdown. Rstudio will prompt you to install several packages, just follow the instructions and install them.
+
+## Download and install the `mrautomatr` package
+
+-   Run the following lines:
+
+```
+install.packages("usethis")
+install.packages("devtools")
+library(usethis)
+library(devtools)
+```
+
+-   Set up your GitHub Personal Auth Token set following instructions on [this website](https://usethis.r-lib.org/reference/browse_github_pat.html). This is only applicable to this package right now since it's internal and private. You may need to email Patrick Anker in order to gain access to the TIES github repository.
+
+-   Run the following line:
+
+```
+devtools::install_github("nyuglobalties/mrautomatr")
+library(mrautomatr)
+```
+
+-   Check out the functions by running `?function_name`, e.g.:
+
+```
+?mrautomatr
+```

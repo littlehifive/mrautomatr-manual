@@ -1,0 +1,3 @@
+# Individual functions
+
+If you are an R user who wishes to run individual functions in this package to get results in R instead of Word, you can check the help pages of those functions by running `?mrautomatr`.

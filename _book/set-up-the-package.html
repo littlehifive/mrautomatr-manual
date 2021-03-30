@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Set up the package | TIES Measurement Report Automation Project</title>
+  <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Set up the package | TIES Measurement Report Automation Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Set up the package | TIES Measurement Report Automation Project" />
+  
+  <meta name="twitter:description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Michael Wu" />
+
+
+<meta name="date" content="2021-03-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="set-up-the-parameters.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Measurement Report Automation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project overview</a></li>
+<li class="chapter" data-level="2" data-path="set-up-the-package.html"><a href="set-up-the-package.html"><i class="fa fa-check"></i><b>2</b> Set up the package</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set-up-the-package.html"><a href="set-up-the-package.html#install-the-necessary-softwares"><i class="fa fa-check"></i><b>2.1</b> Install the necessary softwares</a></li>
+<li class="chapter" data-level="2.2" data-path="set-up-the-package.html"><a href="set-up-the-package.html#download-and-install-the-mrautomatr-package"><i class="fa fa-check"></i><b>2.2</b> Download and install the <code>mrautomatr</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the excel template</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report"><i class="fa fa-check"></i><b>4.1</b> <code>render_report()</code></a></li>
+<li class="chapter" data-level="4.2" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report_manual"><i class="fa fa-check"></i><b>4.2</b> <code>render_report_manual()</code></a></li>
+<li class="chapter" data-level="4.3" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report_multiple"><i class="fa fa-check"></i><b>4.3</b> <code>render_report_multiple()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="individual-functions.html"><a href="individual-functions.html"><i class="fa fa-check"></i><b>5</b> Individual functions</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">TIES Measurement Report Automation Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="set-up-the-package" class="section level1" number="2">
+<h1><span class="header-section-number">2</span> Set up the package</h1>
+<div id="install-the-necessary-softwares" class="section level2" number="2.1">
+<h2><span class="header-section-number">2.1</span> Install the necessary softwares</h2>
+<p>You need to set up <code>R</code> and <code>Rstudio</code> on your computer before everything. <code>R</code> is the programming language that powers this project, and <code>Rstudio</code> is the interface that allows you better interact with your R code. Please follow the steps below:</p>
+<ul>
+<li>Download <code>R</code> <a href="https://cran.r-project.org/mirrors.html">here</a> and install it before you install <code>Rstudio</code>.</li>
+<li>Download <code>Rstudio</code> <a href="https://rstudio.com/products/rstudio/download/#download">here</a> and install it.</li>
+<li>Open Rstudio, and click the first icon from the left on the Rstudio toolbar, and select R Markdown. Rstudio will prompt you to install several packages, just follow the instructions and install them.</li>
+</ul>
+</div>
+<div id="download-and-install-the-mrautomatr-package" class="section level2" number="2.2">
+<h2><span class="header-section-number">2.2</span> Download and install the <code>mrautomatr</code> package</h2>
+<ul>
+<li>Run the following lines:</li>
+</ul>
+<pre><code>install.packages(&quot;usethis&quot;)
+install.packages(&quot;devtools&quot;)
+library(usethis)
+library(devtools)</code></pre>
+<ul>
+<li><p>Set up your GitHub Personal Auth Token set following instructions on <a href="https://usethis.r-lib.org/reference/browse_github_pat.html">this website</a>. This is only applicable to this package right now since it’s internal and private. You may need to email Patrick Anker in order to gain access to the TIES github repository.</p></li>
+<li><p>Run the following line:</p></li>
+</ul>
+<pre><code>devtools::install_github(&quot;nyuglobalties/mrautomatr&quot;)
+library(mrautomatr)</code></pre>
+<ul>
+<li>Check out the functions by running <code>?function_name</code>, e.g.:</li>
+</ul>
+<pre><code>?mrautomatr</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="set-up-the-parameters.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["mrautomatr.pdf", "mrautomatr.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

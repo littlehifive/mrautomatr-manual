@@ -1,0 +1,16 @@
+project-overview
+set-up-the-package
+install-the-necessary-softwares
+download-and-install-the-mrautomatr-package
+set-up-the-parameters
+organize-your-model-outputs
+fill-in-the-excel-template
+tab-1-path
+tab-2-subscale
+tab-3-model
+tab-4-description
+generate-the-report
+render_report
+render_report_manual
+render_report_multiple
+individual-functions

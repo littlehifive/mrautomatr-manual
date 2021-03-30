@@ -1,0 +1,94 @@
+# Set up the parameters
+
+## Organize your model outputs
+
+Before you run any R codes, you need to make sure that the parameters for the report are correctly specified.
+
+First, copy and paste all **currently available** final Mplus models (only the `.out` files) into one folder (e.g. a folder called `Measurement report/Models` somewhere on Box). This includes:
+
+ - EFA models
+ - CFA models
+ - Longitudinal invariance models
+ - Treatment invariance models
+ - Age invariance models
+ - Gender invariance models
+
+## Fill in the excel template
+
+Second, fill in the excel sheet template that we provide. This excel file is downloaded along with the `mrautomatr` package. You can find its file path on your computer by running `system.file("templates", "input_template.xlsx", package = "mrautomatr")` in R. Copy and paste it somewhere in your computer (e.g. a folder called `Measurement report/template`).
+
+Alternatively, you can also find this template (`input_template.xlsx`) located in `inst/templates/` in the [package GitHub repository](https://github.com/nyuglobalties/mrautomatr). Simply hit `Download` to download the template and store somewhere in your computer.
+
+In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with errors in the Word document telling you that you need to specify more parameters to have a full report).
+
+### Tab 1: `path`
+
+A shorthand to get file path on Mac: go to the path/file and hit `command + option + C`.
+
+-   `year` will show up in the first line of your document (not the title).
+
+-   `measure` will show up in the first line of your document.
+
+-   `data_file_path` should be wherever the final master data is located. It will be used to calculate summary statistics and bivariate correlations. Our tool currently takes the following data formats: `.csv`, `.xlsx`, `.dta`.
+
+-   `fs_data_file_path` refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus **does not** generate a spreadsheet, you will need to:
+
+    - **(1) copy and paste the factor scores into an excel sheet, and**
+
+    - **(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.**
+
+    - **(3) save the sheet either as a .csv or an .xlsx file.**
+
+- `model_file_path` leads you to all the Mplus outputs.
+
+### Tab 2: `subscale`
+
+-   The first row should contain the subscale/factor names. They should be the same as the ones in your Mplus models.
+
+-   For each subscale/factor, list the items. The rows can be of unequal length (i.e. you can leave blanks for subscales with smaller number of items).
+
+-   These are specified to generate reliability estimates from the master dataset.
+
+### Tab 3: `model`
+
+-   This specifies all necessary Mplus model names (i.e. `xxx.out`).
+
+-   List all available models in the order of waves (e.g. wave 1 before wave 2).
+
+-   There is no restrictions on the file names, but please follow the [naming rules](https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax) for reproducibility purposes.
+
+### Tab 4: `description`
+
+-   This is specified to have a description of the items at the beginning of the report.
+
+-   You can format this tab in any ways that you like, but the caveat is that (1) the first row will be taken as the header and set to bold, and (2) you cannot merge cells.
+
++---------------------+------------------------------------------------------------------+
+| Variable name       | Description                                                      |
++:====================+:=================================================================+
+| `year`              | Study site and year                                              |
++---------------------+------------------------------------------------------------------+
+| `measure`           | Measure name                                                     |
++---------------------+------------------------------------------------------------------+
+| `data_file_path`    | Local file path to the master dataset on your own computer       |
++---------------------+------------------------------------------------------------------+
+| `fs_data_file_path` | Local file path to the factor score dataset on your own computer |
++---------------------+------------------------------------------------------------------+
+| `model_file_path`   | Local file path to all the Mplus .out files                      |
++---------------------+------------------------------------------------------------------+
+| `subscale`          | Subscales and their corresponding items                          |
++---------------------+------------------------------------------------------------------+
+| `model_efa`         | EFA models                                                       |
++---------------------+------------------------------------------------------------------+
+| `model_cfa`         | CFA models                                                       |
++---------------------+------------------------------------------------------------------+
+| `model_inv_tx`      | Treatment invariance models                                      |
++---------------------+------------------------------------------------------------------+
+| `model_inv_gender`  | Gender invariance models                                         |
++---------------------+------------------------------------------------------------------+
+| `model_inv_age`     | Age invariance models                                            |
++---------------------+------------------------------------------------------------------+
+| `model_inv_lg`      | Longitudinal invariance model                                    |
++---------------------+------------------------------------------------------------------+
+| `description`       | Detailed item descriptions                                       |
++---------------------+------------------------------------------------------------------+

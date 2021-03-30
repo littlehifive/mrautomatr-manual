@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>TIES Measurement Report Automation Project</title>
+  <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="TIES Measurement Report Automation Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TIES Measurement Report Automation Project" />
+  
+  <meta name="twitter:description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Michael Wu" />
+
+
+<meta name="date" content="2021-03-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="set-up-the-package.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Measurement Report Automation</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project overview</a></li>
+<li class="chapter" data-level="2" data-path="set-up-the-package.html"><a href="set-up-the-package.html"><i class="fa fa-check"></i><b>2</b> Set up the package</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="set-up-the-package.html"><a href="set-up-the-package.html#install-the-necessary-softwares"><i class="fa fa-check"></i><b>2.1</b> Install the necessary softwares</a></li>
+<li class="chapter" data-level="2.2" data-path="set-up-the-package.html"><a href="set-up-the-package.html#download-and-install-the-mrautomatr-package"><i class="fa fa-check"></i><b>2.2</b> Download and install the <code>mrautomatr</code> package</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the excel template</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report"><i class="fa fa-check"></i><b>4.1</b> <code>render_report()</code></a></li>
+<li class="chapter" data-level="4.2" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report_manual"><i class="fa fa-check"></i><b>4.2</b> <code>render_report_manual()</code></a></li>
+<li class="chapter" data-level="4.3" data-path="generate-the-report.html"><a href="generate-the-report.html#render_report_multiple"><i class="fa fa-check"></i><b>4.3</b> <code>render_report_multiple()</code></a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="individual-functions.html"><a href="individual-functions.html"><i class="fa fa-check"></i><b>5</b> Individual functions</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">TIES Measurement Report Automation Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">TIES Measurement Report Automation Project</h1>
+<p class="author"><em>Michael Wu</em></p>
+<p class="date"><em>2021-03-29</em></p>
+</div>
+<div id="project-overview" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> Project overview</h1>
+<p>This project is developed to generate lengthy but informative measurement reports from survey data and Mplus measurement model outputs for projects at <a href="https://steinhardt.nyu.edu/ihdsc/global-ties">NYU Global TIES for Children</a>.</p>
+<p>Typically, a research institute like TIES has the obligation to generate detailed measurement reports to better inform the funders and the cooperating agencies about its most up-to-date work. However, even with a Word template, the process from analytical results to a publishable report is <u><strong>unnecessarily inefficent and prone to mistakes</strong></u> even for the most careful research assistant.</p>
+<p>Therefore, we develop an R package called <a href="https://github.com/nyuglobalties/mrautomatr"><code>mrautomatr</code></a> to be used in conjunction with Rstudio to address this issue. Currently, the project only suits the need of NYU Global TIES, where we can impose <a href="https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax">naming rules</a> for files and variables and most people use Mplus for measurement modeling and STATA for other analyses. Future adaptations are needed as people move their analysis to R.</p>
+<p>The project workflow is shown below: the users specify parameters in a Microsoft excel sheet and move several files to a destined folder, run a command in R, and (<strong>boom!</strong>) there is a well-formatted measurement report in Microsoft Word (powered by the <a href="https://davidgohel.github.io/flextable/"><code>flextable</code></a> &amp; <a href="https://bookdown.org/yihui/rmarkdown/"><code>rmarkdown</code></a> R packages).</p>
+<p><img src="images/mrautomatr_diagram.png" width="66%" style="display: block; margin: auto;" /></p>
+<p>We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy.</p>
+<p>Check out the <a href="https://github.com/nyuglobalties/workshops">TIES R workshop series</a> and Yihui Xie’s <a href="https://bookdown.org/yihui/rmarkdown/">Rmarkdown book</a> if you’d like to learn some necessary tools to customize your reporting formats using R.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="set-up-the-package.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["mrautomatr.pdf", "mrautomatr.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

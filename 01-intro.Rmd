@@ -12,24 +12,37 @@ You need to set up `R` and `Rstudio` on your computer before everything. `R` is 
 
 -   Run the following lines:
 
+```{=html}
+<!-- -->
 ```
-install.packages("usethis")
-install.packages("devtools")
-library(usethis)
-library(devtools)
-```
+    install.packages("usethis")
+    install.packages("devtools")
+    library(usethis)
+    library(devtools)
 
--   Set up your GitHub Personal Auth Token set following instructions on [this website](https://usethis.r-lib.org/reference/browse_github_pat.html). This is only applicable to this package right now since it's internal and private. You may need to email Patrick Anker in order to gain access to the TIES github repository.
+-   Set up your GitHub Personal Auth Token set following instructions on [this website](https://usethis.r-lib.org/reference/browse_github_pat.html). This is only applicable to this package right now since it's internal and private. You may need to email Michael Wu ([zw1429\@nyu.edu](mailto:zw1429@nyu.edu){.email}) in order to gain access to the TIES github repository.
 
+  - Essentially, You need to set up your personal access token in a file called `.Renviron`.  Install the `usethis` package and then run `usethis::create_github_token()`.
+  
+  - It’ll take you through the process of creating a token, and then GitHub will give you a string of characters. **Copy that text to somewhere safe for now.**
+  
+  - Then, back in R, run `usethis::edit_r_environ()` and add this to the file: `GITHUB_PAT=[the token text here without the brackets]`.
+
+  - Save that file and restart your R session for changes to take effect.
+  
+  - To verify that you got it to work, when R starts again, run `Sys.getenv("GITHUB_PAT")` and you should see your token, exactly how it was shown on GitHub. If you don’t more troubleshooting is required.
+  
 -   Run the following line:
 
+```{=html}
+<!-- -->
 ```
-devtools::install_github("nyuglobalties/mrautomatr")
-library(mrautomatr)
-```
+    devtools::install_github("nyuglobalties/mrautomatr")
+    library(mrautomatr)
 
 -   Check out the functions by running `?function_name`, e.g.:
 
+```{=html}
+<!-- -->
 ```
-?mrautomatr
-```
+    ?mrautomatr

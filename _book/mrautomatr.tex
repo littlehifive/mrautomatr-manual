@@ -85,7 +85,7 @@
 
 \title{TIES Measurement Report Automation Project}
 \author{Michael Wu}
-\date{2021-03-30}
+\date{2021-04-09}
 
 \begin{document}
 \maketitle
@@ -147,7 +147,17 @@ library(devtools)
 
 \begin{itemize}
 \item
-  Set up your GitHub Personal Auth Token set following instructions on \href{https://usethis.r-lib.org/reference/browse_github_pat.html}{this website}. This is only applicable to this package right now since it's internal and private. You may need to email Patrick Anker in order to gain access to the TIES github repository.
+  Set up your GitHub Personal Auth Token set following instructions on \href{https://usethis.r-lib.org/reference/browse_github_pat.html}{this website}. This is only applicable to this package right now since it's internal and private. You may need to email Michael Wu (\href{mailto:zw1429@nyu.edu}{\nolinkurl{zw1429@nyu.edu}}) in order to gain access to the TIES github repository.
+\item
+  Essentially, You need to set up your personal access token in a file called \texttt{.Renviron}. Install the \texttt{usethis} package and then run \texttt{usethis::create\_github\_token()}.
+\item
+  It'll take you through the process of creating a token, and then GitHub will give you a string of characters. \textbf{Copy that text to somewhere safe for now.}
+\item
+  Then, back in R, run \texttt{usethis::edit\_r\_environ()} and add this to the file: \texttt{GITHUB\_PAT={[}the\ token\ text\ here\ without\ the\ brackets{]}}.
+\item
+  Save that file and restart your R session for changes to take effect.
+\item
+  To verify that you got it to work, when R starts again, run \texttt{Sys.getenv("GITHUB\_PAT")} and you should see your token, exactly how it was shown on GitHub. If you don't more troubleshooting is required.
 \item
   Run the following line:
 \end{itemize}

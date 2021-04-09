@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-03-30" />
+<meta name="date" content="2021-04-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -130,19 +130,27 @@
 <ul>
 <li>Run the following lines:</li>
 </ul>
+<!-- -->
 <pre><code>install.packages(&quot;usethis&quot;)
 install.packages(&quot;devtools&quot;)
 library(usethis)
 library(devtools)</code></pre>
 <ul>
-<li><p>Set up your GitHub Personal Auth Token set following instructions on <a href="https://usethis.r-lib.org/reference/browse_github_pat.html">this website</a>. This is only applicable to this package right now since it’s internal and private. You may need to email Patrick Anker in order to gain access to the TIES github repository.</p></li>
+<li><p>Set up your GitHub Personal Auth Token set following instructions on <a href="https://usethis.r-lib.org/reference/browse_github_pat.html">this website</a>. This is only applicable to this package right now since it’s internal and private. You may need to email Michael Wu (<a href="mailto:zw1429@nyu.edu" class="email">zw1429@nyu.edu</a>) in order to gain access to the TIES github repository.</p></li>
+<li><p>Essentially, You need to set up your personal access token in a file called <code>.Renviron</code>. Install the <code>usethis</code> package and then run <code>usethis::create_github_token()</code>.</p></li>
+<li><p>It’ll take you through the process of creating a token, and then GitHub will give you a string of characters. <strong>Copy that text to somewhere safe for now.</strong></p></li>
+<li><p>Then, back in R, run <code>usethis::edit_r_environ()</code> and add this to the file: <code>GITHUB_PAT=[the token text here without the brackets]</code>.</p></li>
+<li><p>Save that file and restart your R session for changes to take effect.</p></li>
+<li><p>To verify that you got it to work, when R starts again, run <code>Sys.getenv("GITHUB_PAT")</code> and you should see your token, exactly how it was shown on GitHub. If you don’t more troubleshooting is required.</p></li>
 <li><p>Run the following line:</p></li>
 </ul>
+<!-- -->
 <pre><code>devtools::install_github(&quot;nyuglobalties/mrautomatr&quot;)
 library(mrautomatr)</code></pre>
 <ul>
 <li>Check out the functions by running <code>?function_name</code>, e.g.:</li>
 </ul>
+<!-- -->
 <pre><code>?mrautomatr</code></pre>
 
 </div>

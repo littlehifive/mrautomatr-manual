@@ -85,7 +85,7 @@
 
 \title{TIES Measurement Report Automation Project}
 \author{Michael Wu}
-\date{2021-04-09}
+\date{2021-04-22}
 
 \begin{document}
 \maketitle
@@ -210,12 +210,14 @@ Second, fill in the Excel sheet template that we provide. This Excel file is dow
 
 Alternatively, you can also find this template (\texttt{input\_template.xlsx}) located in \texttt{inst/templates/} in the \href{https://github.com/nyuglobalties/mrautomatr}{package GitHub repository}. Simply hit \texttt{Download} to download the template and store somewhere in your computer.
 
-In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with errors in the Word document telling you that you need to specify more parameters to have a full report).
+In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).
 
 \hypertarget{tab-1-path}{%
 \subsection{\texorpdfstring{Tab 1: \texttt{path}}{Tab 1: path}}\label{tab-1-path}}
 
 A shorthand to get file path on Mac: go to the path/file and hit \texttt{command\ +\ option\ +\ C}.
+
+If you are using Box, we recommend typing in an R function from \texttt{mrautomatr} -- \texttt{box\_path("...")} in the \texttt{path} tab in the excel sheet. The \texttt{...} part is whatever sub-folders on your computer under the general Box folder. Examples are \texttt{box\_path("Box\ 3EA\ Team\ Folder/Data\ Management")}, or \texttt{box\_path("Peru/Data/Full")}. This is because different people can have different access to Box folders at different time (e.g.~you only had access to \texttt{Data\ Management} in March, but gained access to \texttt{Box\ 3EA\ Team\ Folder} in April), and if you only specify the local path on your computer, you will need to re-specify it in the excel sheet whenever your level of access changes. \texttt{box\_path(...)} prevents this from happening.
 
 \begin{itemize}
 \item
@@ -249,7 +251,16 @@ A shorthand to get file path on Mac: go to the path/file and hit \texttt{command
   For each subscale/factor, list the items. The rows can be of unequal length (i.e.~you can leave blanks for subscales with smaller number of items).
 \item
   These are specified to generate reliability estimates from the master dataset.
+\item
+  \textbf{Always} add an underscore and a wave tag (\texttt{\_\#}) in the \texttt{subscale} section to both the construct name and the item names in your excel sheet (e.g.~AANXDEP\_1). Whatever numbers comes after "\_" will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like \texttt{names(dat){[}1:10{]}\ \textless{}-\ paste(names(dat){[}1:10{]},\ "\_1",\ sep\ =\ "")} on the variables you want to modify.
 \end{itemize}
+
+If you have already run quite many models and generated multiple reports, I'd suggest using the \texttt{get.omega.bywave()} in the\texttt{mrautomatr} and manually fill in the omegas. E.g.:
+
+\begin{verbatim}
+get.omega.bywave(model = "xxx.out", 
+                 path = "/Users/xxx")
+\end{verbatim}
 
 \hypertarget{tab-3-model}{%
 \subsection{\texorpdfstring{Tab 3: \texttt{model}}{Tab 3: model}}\label{tab-3-model}}
@@ -355,7 +366,7 @@ Detailed item descriptions\strut
 
 After carefully setting your parameters, you can now generate your report!
 
-There are three ways to generate reports:
+There are three ways to generate/knit reports:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -369,24 +380,56 @@ There are three ways to generate reports:
 
 After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is \textbf{necessary} because you may accidentally overwrite your manual edits if you regenerate the report in R.
 
-Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will \textbf{NOT} be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready).
+Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will \textbf{NOT} be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready). If you've already written extensively in a knitted report and want to fix certain small sections/add some numbers, you can run the individual functions in R and manually make the changes.
+
+\textbf{Note.} Error messages are shown in the knitted document in their corresponding section. They are usually about certain parameters not being specified. Other error messages should also be pretty understandable.
+
+\textbf{Note.} Warning messages are not shown in the knitted document. They are usually okay to ignore as they often come from the \texttt{MplusAutomation} package failing to read certain bits of the Mplus output that are not quite important to generating the reports. They may also come from that WRMR is reported instead of SRMR due to Mplus version conflict. If it's telling you an error related to \texttt{xxx\_fscores.csv}, simply ignore it (see this \href{https://github.com/nyuglobalties/mrautomatr/issues/20}{GitHub issue} for an explanation). You can also set \texttt{printwarning\ =\ TRUE} in rendering the reports (see the functions below) to have warnings printed in the documents too, or run \texttt{warnings()} in R to get all warning messages.
 
 \hypertarget{render_report}{%
 \section{\texorpdfstring{\texttt{render\_report()}}{render\_report()}}\label{render_report}}
 
-Run \texttt{?render\_report()} to see what each argument represents.
+This function renders one report for the specified measure.
+
+Run \texttt{?render\_report()} to see what each argument represents. \texttt{parameters} allows you to specify a list of parameters to control the \texttt{params} section in the Rmarkdown template, you can omit this argument to use the default settings. See the bottom of this page for explanations on these parameters.
 
 Example:
 
 \begin{verbatim}
-render_report(input_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
-              template = "input_template_lebanon_cs.xlsx",
-              index = "lebanon_cs",
-              title = "Lebanon Year 1 (2016-2017)",
-              output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test")
-\end{verbatim}
+render_report(output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
+              output_file = "Report_lebanon_cs.docx",
+              parameters = list(
+                       # set R code print options
+                       printcode = FALSE,
+                       printwarning = FALSE,
+                       storecache = FALSE,
 
-This function renders one report for the specified measure.
+                       # set report overall parameters
+                       template = "/Users/michaelfive/Google Drive/NYU/3EA/test/input_template_lebanon_cs.xlsx",
+                       set_title = "Lebanon Year 1 (2016-2017)",
+                       set_author = "Jane Doe",
+
+                       # select report sections
+                       item = TRUE,
+                       descriptive = TRUE,
+                       ds_plot = TRUE,
+                       correlation_matrix_lg = TRUE,
+                       correlation_matrix_bivar = TRUE,
+                       correlation_matrix_item = FALSE, # BE CAREFUL! This might crash the document.
+                       efa_screeplot = TRUE,
+                       cfa_model_fit = TRUE,
+                       cfa_model_plot = TRUE,
+                       cfa_model_parameters = TRUE,
+                       cfa_r2 = TRUE,
+                       internal_reliability = TRUE,
+                       summary_item_statistics = TRUE,
+                       item_total_statistics = TRUE,
+                       inv_tx = TRUE,
+                       inv_gender = TRUE,
+                       inv_age = TRUE,
+                       inv_lg = TRUE
+                       ))
+\end{verbatim}
 
 \hypertarget{render_report_manual}{%
 \section{\texorpdfstring{\texttt{render\_report\_manual()}}{render\_report\_manual()}}\label{render_report_manual}}
@@ -396,11 +439,56 @@ Run \texttt{?render\_report\_manual()} to see what each argument represents.
 Example:
 
 \begin{verbatim}
-render_report_manual(index = "lebanon_cs",
+render_report_manual(output_file = "Report_lebanon_cs.docx",
                      output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test")
 \end{verbatim}
 
 This function opens a Shiny web page where you can click/unclick sections you'd like to include/exclude in the report (see descriptions below). It also renders one report for the specified measure.
+
+\hypertarget{render_report_multiple}{%
+\section{\texorpdfstring{\texttt{render\_report\_multiple()}}{render\_report\_multiple()}}\label{render_report_multiple}}
+
+Run \texttt{?render\_report\_multiple()} to see what each argument represents. This function renders multiple reports at the same time with parameters globally set for all reports.
+
+Example:
+
+\begin{verbatim}
+render_report_multiple(input_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
+                       templates = c("input_template_lebanon_cs.xlsx",
+                                     "input_template_niger_psra.xlsx"),
+                       output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
+                       # set parameters globally for all documents
+                       parameters = list(
+                       # set R code print options
+                       printcode = FALSE,
+                       printwarning = FALSE,
+                       storecache = FALSE,
+
+                       # set report overall parameters
+                       set_author = "Jane Doe",
+                       # report title comes from the `year` tab in each excel template
+
+                       # select report sections
+                       item = TRUE,
+                       descriptive = TRUE,
+                       ds_plot = TRUE,
+                       correlation_matrix_lg = TRUE,
+                       correlation_matrix_bivar = TRUE,
+                       correlation_matrix_item = FALSE, # BE CAREFUL! This might crash the document.
+                       efa_screeplot = TRUE,
+                       cfa_model_fit = TRUE,
+                       cfa_model_plot = TRUE,
+                       cfa_model_parameters = TRUE,
+                       cfa_r2 = TRUE,
+                       internal_reliability = TRUE,
+                       summary_item_statistics = TRUE,
+                       item_total_statistics = TRUE,
+                       inv_tx = TRUE,
+                       inv_gender = TRUE,
+                       inv_age = TRUE,
+                       inv_lg = TRUE
+                       ))
+\end{verbatim}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -533,22 +621,6 @@ print model fit for the longitudinal invariance model\strut
 \end{minipage}\tabularnewline
 \bottomrule
 \end{longtable}
-
-\hypertarget{render_report_multiple}{%
-\section{\texorpdfstring{\texttt{render\_report\_multiple()}}{render\_report\_multiple()}}\label{render_report_multiple}}
-
-Run \texttt{?render\_report\_multiple()} to see what each argument represents.
-
-Example:
-
-\begin{verbatim}
-render_report_multiple(input_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
-                       templates = c("input_template_lebanon_cs.xlsx",
-                                     "input_template_niger_psra.xlsx"),
-                       output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test")
-\end{verbatim}
-
-This function renders multiple reports at the same time.
 
 \hypertarget{individual-functions}{%
 \chapter{Individual functions}\label{individual-functions}}

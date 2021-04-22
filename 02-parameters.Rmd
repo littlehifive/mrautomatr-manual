@@ -19,11 +19,13 @@ Second, fill in the Excel sheet template that we provide. This Excel file is dow
 
 Alternatively, you can also find this template (`input_template.xlsx`) located in `inst/templates/` in the [package GitHub repository](https://github.com/nyuglobalties/mrautomatr). Simply hit `Download` to download the template and store somewhere in your computer.
 
-In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with errors in the Word document telling you that you need to specify more parameters to have a full report).
+In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).
 
 ### Tab 1: `path`
 
-A shorthand to get file path on Mac: go to the path/file and hit `command + option + C`.
+A shorthand to get file path on Mac: go to the path/file and hit `command + option + C`. 
+
+If you are using Box, we recommend typing in an R function from `mrautomatr` -- `box_path("...")` in the `path` tab in the excel sheet. The `...` part is whatever sub-folders on your computer under the general Box folder. Examples are `box_path("Box 3EA Team Folder/Data Management")`, or `box_path("Peru/Data/Full")`. This is because different people can have different access to Box folders at different time (e.g. you only had access to `Data Management` in March, but gained access to `Box 3EA Team Folder` in April), and if you only specify the local path on your computer, you will need to re-specify it in the excel sheet whenever your level of access changes. `box_path(...)` prevents this from happening.
 
 -   `year` will show up in the first line of your document (not the title).
 
@@ -48,6 +50,16 @@ A shorthand to get file path on Mac: go to the path/file and hit `command + opti
 -   For each subscale/factor, list the items. The rows can be of unequal length (i.e. you can leave blanks for subscales with smaller number of items).
 
 -   These are specified to generate reliability estimates from the master dataset.
+
+-  **Always** add an underscore and a wave tag (`_#`) in the `subscale` section to both the construct name and the item names in your excel sheet (e.g. AANXDEP_1). Whatever numbers comes after "_" will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like `names(dat)[1:10] <- paste(names(dat)[1:10], "_1", sep = "")` on the variables you want to modify. 
+
+If you have already run quite many models and generated multiple reports, I'd suggest  using the `get.omega.bywave()` in the`mrautomatr` and manually fill in the omegas. E.g.:
+
+```
+get.omega.bywave(model = "xxx.out", 
+                 path = "/Users/xxx")
+```
+
 
 ### Tab 3: `model`
 

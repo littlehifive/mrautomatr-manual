@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>2 Set up the package | TIES Measurement Report Automation Project</title>
   <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="2 Set up the package | TIES Measurement Report Automation Project" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-04-22" />
+<meta name="date" content="2021-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="set-up-the-parameters.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -79,13 +82,15 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#a-very-important-note-on-naming-rules"><i class="fa fa-check"></i><b>3.2</b> A very important note on naming rules!!!</a></li>
+<li class="chapter" data-level="3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.3</b> Fill in the Excel template</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+<li class="chapter" data-level="3.3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.3.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.3.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.3.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.3.4</b> Tab 4: <code>description</code></a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
 <ul>
@@ -118,12 +123,13 @@
 <h1><span class="header-section-number">2</span> Set up the package</h1>
 <div id="install-the-necessary-softwares" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Install the necessary softwares</h2>
-<p>You need to set up <code>R</code> and <code>Rstudio</code> on your computer before everything. <code>R</code> is the programming language that powers this project, and <code>Rstudio</code> is the interface that allows you better interact with your R code. Please follow the steps below:</p>
+<p>You need to set up R and Rstudio on your computer before everything. R is the programming language that powers this project, and Rstudio is the interface that allows you better interact with your R code. Please follow the steps below:</p>
 <ul>
-<li>Download <code>R</code> <a href="https://cran.r-project.org/mirrors.html">here</a> and install it before you install <code>Rstudio</code>.</li>
-<li>Download <code>Rstudio</code> <a href="https://rstudio.com/products/rstudio/download/#download">here</a> and install it.</li>
+<li>Download R <a href="https://cran.r-project.org/mirrors.html">here</a> and install it before you install Rstudio.</li>
+<li>Download Rstudio <a href="https://rstudio.com/products/rstudio/download/#download">here</a> and install it.</li>
 <li>Open Rstudio, and click the first icon from the left on the Rstudio toolbar, and select R Markdown. Rstudio will prompt you to install several packages, just follow the instructions and install them.</li>
 </ul>
+<p><img src="images/Rstudio_toolbar.png" width="66%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="download-and-install-the-mrautomatr-package" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Download and install the <code>mrautomatr</code> package</h2>
@@ -136,12 +142,15 @@ install.packages(&quot;devtools&quot;)
 library(usethis)
 library(devtools)</code></pre>
 <ul>
-<li><p>Set up your GitHub Personal Auth Token set following instructions on <a href="https://usethis.r-lib.org/reference/browse_github_pat.html">this website</a>. This is only applicable to this package right now since it’s internal and private. You may need to email Michael Wu (<a href="mailto:zw1429@nyu.edu" class="email">zw1429@nyu.edu</a>) in order to gain access to the TIES github repository.</p></li>
-<li><p>Essentially, You need to set up your personal access token in a file called <code>.Renviron</code>. Install the <code>usethis</code> package and then run <code>usethis::create_github_token()</code>.</p></li>
+<li><p>You will need to set up your GitHub Personal Auth Token because this package is still internal and private at this point. You may need to email Michael Wu (<a href="mailto:zw1429@nyu.edu" class="email">zw1429@nyu.edu</a>) in order to gain access to the TIES github repository.</p></li>
+<li><p>Essentially, You need to set up your personal access token in a file called <code>.Renviron</code>. After you install the <code>usethis</code> package, run <code>usethis::create_github_token()</code>.</p></li>
 <li><p>It’ll take you through the process of creating a token, and then GitHub will give you a string of characters. <strong>Copy that text to somewhere safe for now.</strong></p></li>
-<li><p>Then, back in R, run <code>usethis::edit_r_environ()</code> and add this to the file: <code>GITHUB_PAT=[the token text here without the brackets]</code>.</p></li>
+<li><p>Then, back in R, run <code>usethis::edit_r_environ()</code> and add this to the file: <code>GITHUB_PAT=[the token text here without the brackets]</code>. For example, <code>GITHUB_PAT=ghp_...</code>.</p></li>
 <li><p>Save that file and restart your R session for changes to take effect.</p></li>
-<li><p>To verify that you got it to work, when R starts again, run <code>Sys.getenv("GITHUB_PAT")</code> and you should see your token, exactly how it was shown on GitHub. If you don’t more troubleshooting is required.</p></li>
+</ul>
+<p><img src="images/restart_R.png" width="66%" style="display: block; margin: auto;" /></p>
+<ul>
+<li><p>To verify that you got it to work, when R starts again, run <code>Sys.getenv("GITHUB_PAT")</code> and you should see your token, exactly how it was shown on GitHub. If you don’t, more troubleshooting is required and please email Michael.</p></li>
 <li><p>Run the following line:</p></li>
 </ul>
 <!-- -->
@@ -152,6 +161,8 @@ library(mrautomatr)</code></pre>
 </ul>
 <!-- -->
 <pre><code>?mrautomatr</code></pre>
+<p>You should be able to see the documentation page of <code>mrautomatr</code> in the Help panel.</p>
+<p><img src="images/mrautomatr_doc_page.png" width="66%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>
@@ -184,6 +195,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

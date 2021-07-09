@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Set up the parameters | TIES Measurement Report Automation Project</title>
   <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Set up the parameters | TIES Measurement Report Automation Project" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-04-22" />
+<meta name="date" content="2021-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="set-up-the-package.html"/>
 <link rel="next" href="generate-the-report.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -79,13 +82,15 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#a-very-important-note-on-naming-rules"><i class="fa fa-check"></i><b>3.2</b> A very important note on naming rules!!!</a></li>
+<li class="chapter" data-level="3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.3</b> Fill in the Excel template</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+<li class="chapter" data-level="3.3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.3.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.3.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.3.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.3.4</b> Tab 4: <code>description</code></a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
 <ul>
@@ -118,65 +123,77 @@
 <h1><span class="header-section-number">3</span> Set up the parameters</h1>
 <div id="organize-your-model-outputs" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> Organize your model outputs</h2>
-<p>Before you run any R codes, you need to make sure that the parameters for the report are correctly specified.</p>
-<p>First, copy and paste all <strong>currently available</strong> final Mplus models (only the <code>.out</code> files) into one folder (e.g. a folder called <code>Measurement report/Models</code> somewhere on Box). This includes:</p>
+<p>Before you run any R code, you need to make sure that the parameters for the report are correctly specified.</p>
+<p>First, copy and paste all <strong>currently available</strong> final Mplus models (only the <code>.out</code> files) into one folder (e.g., a folder called <code>Measurement report/Models</code> somewhere on Box). This includes:</p>
 <ul>
 <li>EFA models</li>
 <li>CFA models</li>
-<li>Longitudinal invariance models</li>
 <li>Treatment invariance models</li>
 <li>Age invariance models</li>
 <li>Gender invariance models</li>
+<li>Longitudinal invariance models</li>
 </ul>
 </div>
-<div id="fill-in-the-excel-template" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> Fill in the Excel template</h2>
-<p>Second, fill in the Excel sheet template that we provide. This Excel file is downloaded along with the <code>mrautomatr</code> package. You can find its file path on your computer by running <code>system.file("templates", "input_template.xlsx", package = "mrautomatr")</code> in R. Copy and paste it somewhere in your computer (e.g. a folder called <code>Measurement report/template</code>).</p>
-<p>Alternatively, you can also find this template (<code>input_template.xlsx</code>) located in <code>inst/templates/</code> in the <a href="https://github.com/nyuglobalties/mrautomatr">package GitHub repository</a>. Simply hit <code>Download</code> to download the template and store somewhere in your computer.</p>
-<p>In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).</p>
-<div id="tab-1-path" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> Tab 1: <code>path</code></h3>
+<div id="a-very-important-note-on-naming-rules" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> A very important note on naming rules!!!</h2>
+<p>You need to name your file, items, and constructs properly in order for the wave tags shown properly in the document.</p>
+<p>For file names, always have a wave tag right after your measure. For example, <code>CSRL1_cfa_1c_fsamp.out</code>, <code>RSQ2_CFA2-ie19.out</code>. If you only have one wave, use <code>1</code> as your wave tag.</p>
+<p>For items and constructs (in your data, in Mplus files, and in the Excel sheet), <strong>always add an underscore and a wave tag (_#)</strong> in the subscale section to both the construct name and the item names in your excel sheet (e.g., <code>AANXDEP_1</code>, <code>PSRA_1</code>, <code>HAB_AB_2</code>).</p>
+<p>These wave tags get picked up by <code>mrautomatr</code> to index the waves in plots and tables in your document.</p>
+</div>
+<div id="fill-in-the-excel-template" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Fill in the Excel template</h2>
+<p>Second, fill in the Excel sheet template that we provide. You can find this template (<code>input_template.xlsx</code>) located in <code>inst/templates/</code> in the <a href="https://github.com/nyuglobalties/mrautomatr/blob/master/inst/templates/input_template.xlsx">package GitHub repository</a>. Simply hit <code>Download</code> to download the template and store somewhere in your computer.</p>
+<p>Alternatively, this Excel file is downloaded along with the <code>mrautomatr</code> package. You can also find its file path on your computer by running <code>system.file("templates", "input_template.xlsx", package = "mrautomatr")</code> in R. Copy the file path. If you are a Mac user, go to your Finder and hit Go - Go to Folder in your toolbar, and paste the path there and hit Go. Then copy and paste the excel file somewhere in your computer (e.g., a folder called <code>Measurement report/template</code>).</p>
+<p><img src="images/go_to_folder1.png" width="66%" style="display: block; margin: auto;" /><img src="images/go_to_folder2.png" width="66%" style="display: block; margin: auto;" /></p>
+<p>In this template, you need to manually type in the following parameters. For any of the files that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).</p>
+<div id="tab-1-path" class="section level3" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> Tab 1: <code>path</code></h3>
 <p>A shorthand to get file path on Mac: go to the path/file and hit <code>command + option + C</code>.</p>
 <p>If you are using Box, we recommend typing in an R function from <code>mrautomatr</code> – <code>box_path("...")</code> in the <code>path</code> tab in the excel sheet. The <code>...</code> part is whatever sub-folders on your computer under the general Box folder. Examples are <code>box_path("Box 3EA Team Folder/Data Management")</code>, or <code>box_path("Peru/Data/Full")</code>. This is because different people can have different access to Box folders at different time (e.g. you only had access to <code>Data Management</code> in March, but gained access to <code>Box 3EA Team Folder</code> in April), and if you only specify the local path on your computer, you will need to re-specify it in the excel sheet whenever your level of access changes. <code>box_path(...)</code> prevents this from happening.</p>
 <ul>
-<li><p><code>year</code> will show up in the first line of your document (not the title).</p></li>
-<li><p><code>measure</code> will show up in the first line of your document.</p></li>
-<li><p><code>data_file_path</code> should be wherever the final master data is located. It will be used to calculate summary statistics and bivariate correlations. Our tool currently takes the following data formats: <code>.csv</code>, <code>.xlsx</code>, <code>.dta</code>.</p></li>
-<li><p><code>fs_data_file_path</code> refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus <strong>does not</strong> generate a spreadsheet, you will need to:</p>
+<li><p><code>year</code> indicates the study year.</p></li>
+<li><p><code>measure</code> indicates the measure name.</p></li>
+<li><p><code>data_file_path</code> should be wherever the final master data is located. It will be used to calculate summary statistics, bivariate correlations, and reliability statistics. Our tool currently takes the following data formats: <code>.csv</code>, <code>.xlsx</code>, <code>.dta</code>.</p></li>
+<li><p><code>fs_data_file_path</code> refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus <strong>does not</strong> generate a spreadsheet for you, you will need to:</p>
 <ul>
 <li><p><strong>(1) copy and paste the factor scores into an Excel sheet, and</strong></p></li>
-<li><p><strong>(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.</strong></p></li>
+<li><p><strong>(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models. Remember to add the _# wave tags.</strong></p></li>
 <li><p><strong>(3) save the sheet either as a .csv or an .xlsx file.</strong></p></li>
 </ul></li>
-<li><p><code>model_file_path</code> leads you to all the Mplus outputs.</p></li>
+<li><p><code>model_file_path</code> leads you to the folder where all the Mplus outputs are located.</p></li>
 </ul>
 </div>
-<div id="tab-2-subscale" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> Tab 2: <code>subscale</code></h3>
+<div id="tab-2-subscale" class="section level3" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> Tab 2: <code>subscale</code></h3>
 <ul>
 <li><p>The first row should contain the subscale/factor names. They should be the same as the ones in your Mplus models.</p></li>
 <li><p>For each subscale/factor, list the items. The rows can be of unequal length (i.e. you can leave blanks for subscales with smaller number of items).</p></li>
 <li><p>These are specified to generate reliability estimates from the master dataset.</p></li>
-<li><p><strong>Always</strong> add an underscore and a wave tag (<code>_#</code>) in the <code>subscale</code> section to both the construct name and the item names in your excel sheet (e.g. AANXDEP_1). Whatever numbers comes after "_" will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like <code>names(dat)[1:10] &lt;- paste(names(dat)[1:10], "_1", sep = "")</code> on the variables you want to modify.</p></li>
+<li><p><strong>Always</strong> add an underscore and a wave tag (<code>_#</code>) in the <code>subscale</code> section to both the construct name and the item names in your excel sheet (e.g., <code>AANXDEP_1</code>). Whatever numbers comes after “_” will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like <code>names(dat)[1:10] &lt;- paste(names(dat)[1:10], "_1", sep = "")</code> on the variables you want to modify.</p></li>
 </ul>
-<p>If you have already run quite many models and generated multiple reports, I’d suggest using the <code>get.omega.bywave()</code> in the<code>mrautomatr</code> and manually fill in the omegas. E.g.:</p>
+<p>The Omega reliability coefficients will likely not show up if the wave tags are misspecified. If you have already run quite many models and generated multiple reports, I’d suggest using the <code>get.omega.bywave()</code> in the<code>mrautomatr</code> and manually fill in the omegas in your document. E.g.:</p>
 <pre><code>get.omega.bywave(model = &quot;xxx.out&quot;, 
                  path = &quot;/Users/xxx&quot;)</code></pre>
 </div>
-<div id="tab-3-model" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> Tab 3: <code>model</code></h3>
+<div id="tab-3-model" class="section level3" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> Tab 3: <code>model</code></h3>
 <ul>
 <li><p>This specifies all necessary Mplus model names (i.e. <code>xxx.out</code>).</p></li>
 <li><p>List all available models in the order of waves (e.g. wave 1 before wave 2).</p></li>
 <li><p>There is no restrictions on the file names, but please follow the <a href="https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax">naming rules</a> for reproducibility purposes.</p></li>
 </ul>
 </div>
-<div id="tab-4-description" class="section level3" number="3.2.4">
-<h3><span class="header-section-number">3.2.4</span> Tab 4: <code>description</code></h3>
+<div id="tab-4-description" class="section level3" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> Tab 4: <code>description</code></h3>
 <ul>
 <li><p>This is specified to have a description of the items at the beginning of the report.</p></li>
 <li><p>You can format this tab in any ways that you like, but the caveat is that (1) the first row will be taken as the header and set to bold, and (2) you cannot merge cells.</p></li>
 </ul>
+</div>
+</div>
+<div id="summary" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> Summary</h2>
 <table>
 <colgroup>
 <col width="24%" />
@@ -246,7 +263,6 @@
 
 </div>
 </div>
-</div>
             </section>
 
           </div>
@@ -276,6 +292,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

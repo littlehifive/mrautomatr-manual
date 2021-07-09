@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>TIES Measurement Report Automation Project</title>
   <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="TIES Measurement Report Automation Project" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-04-22" />
+<meta name="date" content="2021-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 
 <link rel="next" href="set-up-the-package.html"/>
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -79,13 +82,15 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#a-very-important-note-on-naming-rules"><i class="fa fa-check"></i><b>3.2</b> A very important note on naming rules!!!</a></li>
+<li class="chapter" data-level="3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.3</b> Fill in the Excel template</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+<li class="chapter" data-level="3.3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.3.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.3.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.3.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.3.4</b> Tab 4: <code>description</code></a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
 <ul>
@@ -117,7 +122,7 @@
 <div id="header">
 <h1 class="title">TIES Measurement Report Automation Project</h1>
 <p class="author"><em>Michael Wu</em></p>
-<p class="date"><em>2021-04-22</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2021-07-09</em></p>
 </div>
 <div id="project-overview" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Project overview</h1>
@@ -126,7 +131,7 @@
 <p>Therefore, we develop an R package called <a href="https://github.com/nyuglobalties/mrautomatr"><code>mrautomatr</code></a> to be used in conjunction with Rstudio to address this issue. Currently, the project only suits the need of NYU Global TIES, where we can impose <a href="https://nyu.box.com/s/ate5l7wmw164u7xjg3g8x1vrfhwnt0ax">naming rules</a> for files and variables and most people use Mplus for measurement modeling and STATA for other analyses. Future adaptations are needed as people move their analysis to R.</p>
 <p>The project workflow is shown below: the users specify parameters in a Microsoft Excel sheet and move several files to a destined folder, run a command in R, and (<strong>boom!</strong>) there is a well-formatted measurement report in Microsoft Word (powered by the <a href="https://davidgohel.github.io/flextable/"><code>flextable</code></a> &amp; <a href="https://bookdown.org/yihui/rmarkdown/"><code>rmarkdown</code></a> R packages).</p>
 <p><img src="images/mrautomatr_diagram.png" width="66%" style="display: block; margin: auto;" /></p>
-<p>We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report <a href="https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp">here</a>.</p>
+<p>We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. <strong>Our hope is that even if you are new to R, you’ll still be able to use the package efficiently for your own report generation</strong>. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report <a href="https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp">here</a>.</p>
 <p>Check out the <a href="https://github.com/nyuglobalties/workshops">TIES R workshop series</a> and Yihui Xie’s <a href="https://bookdown.org/yihui/rmarkdown/">Rmarkdown book</a> if you’d like to learn some necessary tools to customize your reporting formats using R.</p>
 
 </div>
@@ -159,6 +164,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {

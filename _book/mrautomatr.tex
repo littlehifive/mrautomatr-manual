@@ -85,7 +85,7 @@
 
 \title{TIES Measurement Report Automation Project}
 \author{Michael Wu}
-\date{2021-04-22}
+\date{2021-07-09}
 
 \begin{document}
 \maketitle
@@ -107,7 +107,7 @@ The project workflow is shown below: the users specify parameters in a Microsoft
 
 \begin{center}\includegraphics[width=0.66\linewidth]{images/mrautomatr_diagram} \end{center}
 
-We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report \href{https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp}{here}.
+We chose Word over LaTex (which generates pdf files) and html (which generates web pages) simply to minimize the confusion around writing codes in R, which takes a long time to learn. \textbf{Our hope is that even if you are new to R, you'll still be able to use the package efficiently for your own report generation}. After generating the reproducible parts of the report, feel free to rename it and manually edit the sections that are text-heavy. Check out an example rendered report \href{https://nyu.box.com/s/wbwcqj3u2x9y6levrwgn9przp7ptr5hp}{here}.
 
 Check out the \href{https://github.com/nyuglobalties/workshops}{TIES R workshop series} and Yihui Xie's \href{https://bookdown.org/yihui/rmarkdown/}{Rmarkdown book} if you'd like to learn some necessary tools to customize your reporting formats using R.
 
@@ -117,17 +117,19 @@ Check out the \href{https://github.com/nyuglobalties/workshops}{TIES R workshop 
 \hypertarget{install-the-necessary-softwares}{%
 \section{Install the necessary softwares}\label{install-the-necessary-softwares}}
 
-You need to set up \texttt{R} and \texttt{Rstudio} on your computer before everything. \texttt{R} is the programming language that powers this project, and \texttt{Rstudio} is the interface that allows you better interact with your R code. Please follow the steps below:
+You need to set up R and Rstudio on your computer before everything. R is the programming language that powers this project, and Rstudio is the interface that allows you better interact with your R code. Please follow the steps below:
 
 \begin{itemize}
 \tightlist
 \item
-  Download \texttt{R} \href{https://cran.r-project.org/mirrors.html}{here} and install it before you install \texttt{Rstudio}.
+  Download R \href{https://cran.r-project.org/mirrors.html}{here} and install it before you install Rstudio.
 \item
-  Download \texttt{Rstudio} \href{https://rstudio.com/products/rstudio/download/\#download}{here} and install it.
+  Download Rstudio \href{https://rstudio.com/products/rstudio/download/\#download}{here} and install it.
 \item
   Open Rstudio, and click the first icon from the left on the Rstudio toolbar, and select R Markdown. Rstudio will prompt you to install several packages, just follow the instructions and install them.
 \end{itemize}
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/Rstudio_toolbar} \end{center}
 
 \hypertarget{download-and-install-the-mrautomatr-package}{%
 \section{\texorpdfstring{Download and install the \texttt{mrautomatr} package}{Download and install the mrautomatr package}}\label{download-and-install-the-mrautomatr-package}}
@@ -147,17 +149,22 @@ library(devtools)
 
 \begin{itemize}
 \item
-  Set up your GitHub Personal Auth Token set following instructions on \href{https://usethis.r-lib.org/reference/browse_github_pat.html}{this website}. This is only applicable to this package right now since it's internal and private. You may need to email Michael Wu (\href{mailto:zw1429@nyu.edu}{\nolinkurl{zw1429@nyu.edu}}) in order to gain access to the TIES github repository.
+  You will need to set up your GitHub Personal Auth Token because this package is still internal and private at this point. You may need to email Michael Wu (\href{mailto:zw1429@nyu.edu}{\nolinkurl{zw1429@nyu.edu}}) in order to gain access to the TIES github repository.
 \item
-  Essentially, You need to set up your personal access token in a file called \texttt{.Renviron}. Install the \texttt{usethis} package and then run \texttt{usethis::create\_github\_token()}.
+  Essentially, You need to set up your personal access token in a file called \texttt{.Renviron}. After you install the \texttt{usethis} package, run \texttt{usethis::create\_github\_token()}.
 \item
   It'll take you through the process of creating a token, and then GitHub will give you a string of characters. \textbf{Copy that text to somewhere safe for now.}
 \item
-  Then, back in R, run \texttt{usethis::edit\_r\_environ()} and add this to the file: \texttt{GITHUB\_PAT={[}the\ token\ text\ here\ without\ the\ brackets{]}}.
+  Then, back in R, run \texttt{usethis::edit\_r\_environ()} and add this to the file: \texttt{GITHUB\_PAT={[}the\ token\ text\ here\ without\ the\ brackets{]}}. For example, \texttt{GITHUB\_PAT=ghp\_...}.
 \item
   Save that file and restart your R session for changes to take effect.
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/restart_R} \end{center}
+
+\begin{itemize}
 \item
-  To verify that you got it to work, when R starts again, run \texttt{Sys.getenv("GITHUB\_PAT")} and you should see your token, exactly how it was shown on GitHub. If you don't more troubleshooting is required.
+  To verify that you got it to work, when R starts again, run \texttt{Sys.getenv("GITHUB\_PAT")} and you should see your token, exactly how it was shown on GitHub. If you don't, more troubleshooting is required and please email Michael.
 \item
   Run the following line:
 \end{itemize}
@@ -177,15 +184,19 @@ library(mrautomatr)
 ?mrautomatr
 \end{verbatim}
 
+You should be able to see the documentation page of \texttt{mrautomatr} in the Help panel.
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/mrautomatr_doc_page} \end{center}
+
 \hypertarget{set-up-the-parameters}{%
 \chapter{Set up the parameters}\label{set-up-the-parameters}}
 
 \hypertarget{organize-your-model-outputs}{%
 \section{Organize your model outputs}\label{organize-your-model-outputs}}
 
-Before you run any R codes, you need to make sure that the parameters for the report are correctly specified.
+Before you run any R code, you need to make sure that the parameters for the report are correctly specified.
 
-First, copy and paste all \textbf{currently available} final Mplus models (only the \texttt{.out} files) into one folder (e.g.~a folder called \texttt{Measurement\ report/Models} somewhere on Box). This includes:
+First, copy and paste all \textbf{currently available} final Mplus models (only the \texttt{.out} files) into one folder (e.g., a folder called \texttt{Measurement\ report/Models} somewhere on Box). This includes:
 
 \begin{itemize}
 \tightlist
@@ -194,23 +205,38 @@ First, copy and paste all \textbf{currently available} final Mplus models (only 
 \item
   CFA models
 \item
-  Longitudinal invariance models
-\item
   Treatment invariance models
 \item
   Age invariance models
 \item
   Gender invariance models
+\item
+  Longitudinal invariance models
 \end{itemize}
+
+\hypertarget{a-very-important-note-on-naming-rules}{%
+\section{A very important note on naming rules!!!}\label{a-very-important-note-on-naming-rules}}
+
+You need to name your file, items, and constructs properly in order for the wave tags shown properly in the document.
+
+For file names, always have a wave tag right after your measure. For example, \texttt{CSRL1\_cfa\_1c\_fsamp.out}, \texttt{RSQ2\_CFA2-ie19.out}. If you only have one wave, use \texttt{1} as your wave tag.
+
+For items and constructs (in your data, in Mplus files, and in the Excel sheet), \textbf{always add an underscore and a wave tag (\_\#)} in the subscale section to both the construct name and the item names in your excel sheet (e.g., \texttt{AANXDEP\_1}, \texttt{PSRA\_1}, \texttt{HAB\_AB\_2}).
+
+These wave tags get picked up by \texttt{mrautomatr} to index the waves in plots and tables in your document.
 
 \hypertarget{fill-in-the-excel-template}{%
 \section{Fill in the Excel template}\label{fill-in-the-excel-template}}
 
-Second, fill in the Excel sheet template that we provide. This Excel file is downloaded along with the \texttt{mrautomatr} package. You can find its file path on your computer by running \texttt{system.file("templates",\ "input\_template.xlsx",\ package\ =\ "mrautomatr")} in R. Copy and paste it somewhere in your computer (e.g.~a folder called \texttt{Measurement\ report/template}).
+Second, fill in the Excel sheet template that we provide. You can find this template (\texttt{input\_template.xlsx}) located in \texttt{inst/templates/} in the \href{https://github.com/nyuglobalties/mrautomatr/blob/master/inst/templates/input_template.xlsx}{package GitHub repository}. Simply hit \texttt{Download} to download the template and store somewhere in your computer.
 
-Alternatively, you can also find this template (\texttt{input\_template.xlsx}) located in \texttt{inst/templates/} in the \href{https://github.com/nyuglobalties/mrautomatr}{package GitHub repository}. Simply hit \texttt{Download} to download the template and store somewhere in your computer.
+Alternatively, this Excel file is downloaded along with the \texttt{mrautomatr} package. You can also find its file path on your computer by running \texttt{system.file("templates",\ "input\_template.xlsx",\ package\ =\ "mrautomatr")} in R. Copy the file path. If you are a Mac user, go to your Finder and hit Go - Go to Folder in your toolbar, and paste the path there and hit Go. Then copy and paste the excel file somewhere in your computer (e.g., a folder called \texttt{Measurement\ report/template}).
 
-In this template, you need to manually type in the following parameters. For any parameters that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).
+\begin{center}\includegraphics[width=0.66\linewidth]{images/go_to_folder1} \end{center}
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/go_to_folder2} \end{center}
+
+In this template, you need to manually type in the following parameters. For any of the files that are not available temporarily, you can leave blank and still be able to generate the report (with error messages shown in the Word document telling you that you need to specify more parameters/fix certain things to have a full report).
 
 \hypertarget{tab-1-path}{%
 \subsection{\texorpdfstring{Tab 1: \texttt{path}}{Tab 1: path}}\label{tab-1-path}}
@@ -221,24 +247,24 @@ If you are using Box, we recommend typing in an R function from \texttt{mrautoma
 
 \begin{itemize}
 \item
-  \texttt{year} will show up in the first line of your document (not the title).
+  \texttt{year} indicates the study year.
 \item
-  \texttt{measure} will show up in the first line of your document.
+  \texttt{measure} indicates the measure name.
 \item
-  \texttt{data\_file\_path} should be wherever the final master data is located. It will be used to calculate summary statistics and bivariate correlations. Our tool currently takes the following data formats: \texttt{.csv}, \texttt{.xlsx}, \texttt{.dta}.
+  \texttt{data\_file\_path} should be wherever the final master data is located. It will be used to calculate summary statistics, bivariate correlations, and reliability statistics. Our tool currently takes the following data formats: \texttt{.csv}, \texttt{.xlsx}, \texttt{.dta}.
 \item
-  \texttt{fs\_data\_file\_path} refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus \textbf{does not} generate a spreadsheet, you will need to:
+  \texttt{fs\_data\_file\_path} refers to the file path where the tabular data of the Mplus-generated factor scores is saved. Because Mplus \textbf{does not} generate a spreadsheet for you, you will need to:
 
   \begin{itemize}
   \item
     \textbf{(1) copy and paste the factor scores into an Excel sheet, and}
   \item
-    \textbf{(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models.}
+    \textbf{(2) insert the first row and name the variables exactly the same as they are in your master dataset and in your other Mplus models. Remember to add the \_\# wave tags.}
   \item
     \textbf{(3) save the sheet either as a .csv or an .xlsx file.}
   \end{itemize}
 \item
-  \texttt{model\_file\_path} leads you to all the Mplus outputs.
+  \texttt{model\_file\_path} leads you to the folder where all the Mplus outputs are located.
 \end{itemize}
 
 \hypertarget{tab-2-subscale}{%
@@ -252,10 +278,10 @@ If you are using Box, we recommend typing in an R function from \texttt{mrautoma
 \item
   These are specified to generate reliability estimates from the master dataset.
 \item
-  \textbf{Always} add an underscore and a wave tag (\texttt{\_\#}) in the \texttt{subscale} section to both the construct name and the item names in your excel sheet (e.g.~AANXDEP\_1). Whatever numbers comes after "\_" will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like \texttt{names(dat){[}1:10{]}\ \textless{}-\ paste(names(dat){[}1:10{]},\ "\_1",\ sep\ =\ "")} on the variables you want to modify.
+  \textbf{Always} add an underscore and a wave tag (\texttt{\_\#}) in the \texttt{subscale} section to both the construct name and the item names in your excel sheet (e.g., \texttt{AANXDEP\_1}). Whatever numbers comes after ``\_'' will be shown in the table as the wave tag. And the wave tag also needs to be added for the variables in the master dataset. Not sure if this is easy to do in Mplus, but you can certainly export another master dataset after running things like \texttt{names(dat){[}1:10{]}\ \textless{}-\ paste(names(dat){[}1:10{]},\ "\_1",\ sep\ =\ "")} on the variables you want to modify.
 \end{itemize}
 
-If you have already run quite many models and generated multiple reports, I'd suggest using the \texttt{get.omega.bywave()} in the\texttt{mrautomatr} and manually fill in the omegas. E.g.:
+The Omega reliability coefficients will likely not show up if the wave tags are misspecified. If you have already run quite many models and generated multiple reports, I'd suggest using the \texttt{get.omega.bywave()} in the\texttt{mrautomatr} and manually fill in the omegas in your document. E.g.:
 
 \begin{verbatim}
 get.omega.bywave(model = "xxx.out", 
@@ -283,6 +309,9 @@ get.omega.bywave(model = "xxx.out",
 \item
   You can format this tab in any ways that you like, but the caveat is that (1) the first row will be taken as the header and set to bold, and (2) you cannot merge cells.
 \end{itemize}
+
+\hypertarget{summary}{%
+\section{Summary}\label{summary}}
 
 \begin{longtable}[]{@{}ll@{}}
 \toprule
@@ -380,7 +409,7 @@ There are three ways to generate/knit reports:
 
 After generating the report, make sure to rename it and manually edit the sections that are text-heavy. The renaming is \textbf{necessary} because you may accidentally overwrite your manual edits if you regenerate the report in R.
 
-Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will \textbf{NOT} be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). So we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready). If you've already written extensively in a knitted report and want to fix certain small sections/add some numbers, you can run the individual functions in R and manually make the changes.
+Rmarkdown is not powerful yet to allow back-translation from Word to R codes, so your manual changes in Word will \textbf{NOT} be reflected in the R codes when you regenerate the report for some reasons (e.g.~wrong file names). Therefore, we recommend finalizing the tables and plots before you write texts in the Word document (or you can just store the texts in another and move them over to the master report whenever you feel ready). If you've already written extensively in a knitted report and want to fix certain small sections/add some numbers, you can run the individual functions in R and manually make the changes.
 
 \textbf{Note.} Error messages are shown in the knitted document in their corresponding section. They are usually about certain parameters not being specified. Other error messages should also be pretty understandable.
 
@@ -420,6 +449,7 @@ render_report(output_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test",
                        cfa_model_fit = TRUE,
                        cfa_model_plot = TRUE,
                        cfa_model_parameters = TRUE,
+                       cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
                        cfa_r2 = TRUE,
                        internal_reliability = TRUE,
                        summary_item_statistics = TRUE,
@@ -444,6 +474,12 @@ render_report_manual(output_file = "Report_lebanon_cs.docx",
 \end{verbatim}
 
 This function opens a Shiny web page where you can click/unclick sections you'd like to include/exclude in the report (see descriptions below). It also renders one report for the specified measure.
+
+Click Save to start rendering the report, click Cancel to stop the web app and go back to R and hit the Esc button to exit the Shiny web session.
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/render_report_manual1} \end{center}
+
+\begin{center}\includegraphics[width=0.66\linewidth]{images/render_report_manual2} \end{center}
 
 \hypertarget{render_report_multiple}{%
 \section{\texorpdfstring{\texttt{render\_report\_multiple()}}{render\_report\_multiple()}}\label{render_report_multiple}}
@@ -479,6 +515,7 @@ render_report_multiple(input_dir = "/Users/michaelfive/Google Drive/NYU/3EA/test
                        cfa_model_fit = TRUE,
                        cfa_model_plot = TRUE,
                        cfa_model_parameters = TRUE,
+                       cfa_model_thresholds = FALSE, # default is to mute the thresholds as the table can get very long
                        cfa_r2 = TRUE,
                        internal_reliability = TRUE,
                        summary_item_statistics = TRUE,
@@ -577,7 +614,12 @@ print CFA model path diagram (for the first specified CFA model; i.e.~Time 1; as
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.13}}\raggedright
 \texttt{cfa\_model\_parameters}\strut
 \end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.87}}\raggedright
-print CFA model parameters at all waves (factor loadings and thresholds)\strut
+print CFA model parameters at all waves (factor loadings)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.13}}\raggedright
+\texttt{cfa\_model\_thresholds}\strut
+\end{minipage} & \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.87}}\raggedright
+print the thresholds in CFA model parameters at all waves; default is \texttt{FALSE} in order to mute the thresholds as the table can get very long\strut
 \end{minipage}\tabularnewline
 \begin{minipage}[t]{(\columnwidth - 1\tabcolsep) * \real{0.13}}\raggedright
 \texttt{cfa\_r2}\strut

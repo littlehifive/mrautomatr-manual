@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Individual functions | TIES Measurement Report Automation Project</title>
   <meta name="description" content="This instruction manual is generated using the R package bookdown. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Individual functions | TIES Measurement Report Automation Project" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Michael Wu" />
 
 
-<meta name="date" content="2021-04-22" />
+<meta name="date" content="2021-07-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="generate-the-report.html"/>
 
-<script src="libs/header-attrs-2.7/header-attrs.js"></script>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
 
 
 
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 
@@ -79,13 +82,15 @@
 <li class="chapter" data-level="3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html"><i class="fa fa-check"></i><b>3</b> Set up the parameters</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#organize-your-model-outputs"><i class="fa fa-check"></i><b>3.1</b> Organize your model outputs</a></li>
-<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.2</b> Fill in the Excel template</a>
+<li class="chapter" data-level="3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#a-very-important-note-on-naming-rules"><i class="fa fa-check"></i><b>3.2</b> A very important note on naming rules!!!</a></li>
+<li class="chapter" data-level="3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#fill-in-the-excel-template"><i class="fa fa-check"></i><b>3.3</b> Fill in the Excel template</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.2.1</b> Tab 1: <code>path</code></a></li>
-<li class="chapter" data-level="3.2.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.2.2</b> Tab 2: <code>subscale</code></a></li>
-<li class="chapter" data-level="3.2.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.2.3</b> Tab 3: <code>model</code></a></li>
-<li class="chapter" data-level="3.2.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.2.4</b> Tab 4: <code>description</code></a></li>
+<li class="chapter" data-level="3.3.1" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-1-path"><i class="fa fa-check"></i><b>3.3.1</b> Tab 1: <code>path</code></a></li>
+<li class="chapter" data-level="3.3.2" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-2-subscale"><i class="fa fa-check"></i><b>3.3.2</b> Tab 2: <code>subscale</code></a></li>
+<li class="chapter" data-level="3.3.3" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-3-model"><i class="fa fa-check"></i><b>3.3.3</b> Tab 3: <code>model</code></a></li>
+<li class="chapter" data-level="3.3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#tab-4-description"><i class="fa fa-check"></i><b>3.3.4</b> Tab 4: <code>description</code></a></li>
 </ul></li>
+<li class="chapter" data-level="3.4" data-path="set-up-the-parameters.html"><a href="set-up-the-parameters.html#summary"><i class="fa fa-check"></i><b>3.4</b> Summary</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="generate-the-report.html"><a href="generate-the-report.html"><i class="fa fa-check"></i><b>4</b> Generate the report</a>
 <ul>
@@ -148,6 +153,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
